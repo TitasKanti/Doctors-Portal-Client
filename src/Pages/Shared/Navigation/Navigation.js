@@ -8,8 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
+import { useHistory } from 'react-router-dom';
 
 const Navigation = () => {
+    const history = useHistory();
+    const handleLogin = () => {
+        history.push('/login');
+    }
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -27,7 +32,7 @@ const Navigation = () => {
                         Doctors Portal
                     </Typography>
                     <Link className='decoration' to='/appointment'><Button style={{ color: 'white' }}>Appointment</Button></Link>
-                    <Button color="inherit">Login</Button>
+                    <Button onClick={handleLogin} color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
         </Box>
